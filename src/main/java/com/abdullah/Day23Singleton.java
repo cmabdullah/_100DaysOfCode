@@ -3,25 +3,25 @@ package com.abdullah;
 public class Day23Singleton {
 
 	public static void main(String[] args) {
-		Singleton singleton = Singleton.getInstance();
+		SingletonV0 singleton = SingletonV0.getInstance();
 		System.out.println("number of processors " + singleton.getNumberOfProcessor());
 	}
 }
 
-class Singleton {
+class SingletonV0 {
 
 	private final int numberOfProcessor;
 
 	private static class Holder {
-		private static final Singleton instance =
-				new Singleton(Runtime.getRuntime().availableProcessors());
+		private static final SingletonV0 instance =
+				new SingletonV0(Runtime.getRuntime().availableProcessors());
 	}
 
-	private Singleton(int numberOfProcessor) {
+	private SingletonV0(int numberOfProcessor) {
 		this.numberOfProcessor = numberOfProcessor;
 	}
 
-	public static Singleton getInstance() {
+	public static SingletonV0 getInstance() {
 		return Holder.instance;
 	}
 
